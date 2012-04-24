@@ -5,6 +5,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.entity.CreatureSpawnEvent;
 import org.bukkit.event.entity.ItemSpawnEvent;
 import org.bukkit.event.entity.CreatureSpawnEvent.SpawnReason;
+import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.player.PlayerEggThrowEvent;
 import org.bukkit.plugin.java.JavaPlugin;
 
@@ -39,6 +40,11 @@ public class J2MC_Antidrop extends JavaPlugin implements Listener {
         if(reason==SpawnReason.BUILD_IRONGOLEM || reason==SpawnReason.BUILD_SNOWMAN){
             event.setCancelled(true);
         }
+    }
+    
+    @EventHandler
+    public void death(PlayerDeathEvent event){
+        event.setDeathMessage(null);
     }
 
 }
