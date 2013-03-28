@@ -74,7 +74,7 @@ public class J2MC_Antidrop extends JavaPlugin implements Listener {
     public void onConsumption(PlayerItemConsumeEvent event) {
         Player player = event.getPlayer();
 
-        if (player.hasPermission("j2mc.core.admin")) {
+        if (!player.hasPermission("j2mc.core.admin")) {
             if (event.getItem().getType().equals(Material.POTION) && (event.getItem().getDurability() != 0)) {
                 Potion potion = Potion.fromItemStack(event.getItem());
 
