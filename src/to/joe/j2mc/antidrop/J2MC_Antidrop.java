@@ -19,7 +19,7 @@ public class J2MC_Antidrop extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void onItemEvent(ItemSpawnEvent event) {
+    public void onItemSpawnEvent(ItemSpawnEvent event) {
         event.setCancelled(true);
     }
 
@@ -31,7 +31,7 @@ public class J2MC_Antidrop extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void spawn(CreatureSpawnEvent event) {
+    public void onCreatureSpawn(CreatureSpawnEvent event) {
         SpawnReason reason = event.getSpawnReason();
         if (reason == SpawnReason.BUILD_IRONGOLEM || reason == SpawnReason.BUILD_SNOWMAN) {
             event.setCancelled(true);
@@ -39,12 +39,12 @@ public class J2MC_Antidrop extends JavaPlugin implements Listener {
     }
 
     @EventHandler
-    public void death(PlayerDeathEvent event) {
+    public void onPlayerDeath(PlayerDeathEvent event) {
         event.setDeathMessage(null);
     }
 
     @EventHandler
-    public void onDispense(BlockDispenseEvent event) {
+    public void onBlockDispense(BlockDispenseEvent event) {
         Material type = event.getItem().getType();
         if (type == Material.LAVA_BUCKET || type == Material.WATER_BUCKET || type == Material.LAVA || type == Material.WATER) {
             event.setCancelled(true);
