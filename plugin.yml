@@ -4,3 +4,13 @@ version: 1.1
 website: http://forums.joe.to
 author: J2 Minecraft Plugin Team
 description: j2 fun blocker
+commands:
+  toggledrops:
+    description: Toggle drops on or off
+    usage: /<command>
+    permission: j2mc.antidrop.toggle
+    permission-message: Nope
+permissions:
+  j2mc.antidrop.toggle:
+    description: Toggle drops on or off
+    default: true
