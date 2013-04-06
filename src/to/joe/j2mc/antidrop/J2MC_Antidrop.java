@@ -7,6 +7,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import org.bukkit.GameMode;
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.event.EventHandler;
@@ -38,7 +39,7 @@ public class J2MC_Antidrop extends JavaPlugin implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onBlockBreak(BlockBreakEvent event) {
-        if (this.dropsDisabled.contains(event.getPlayer().getName())) {
+        if (event.getPlayer().getGameMode() != GameMode.CREATIVE && this.dropsDisabled.contains(event.getPlayer().getName())) {
             this.blockBreaks.put(event.getBlock().getLocation(), event.getBlock().getType());
         }
     }
